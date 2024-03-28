@@ -1,13 +1,13 @@
 export default function Hero() {
     return (
         <div id='1'
-            className="py-[16%] px-[5%] bg-[#1A3360] bg-auto lg:bg-cover bg-center bg-no-repeat h-lvh w-full lg:w-screen"
+            className="py-[90px] px-[5%] bg-[#1A3360] bg-auto lg:bg-cover bg-center bg-no-repeat h-lvh w-full lg:w-auto"
             style={{
                 backgroundImage: 'url("./images/Group29.png")'
             }}
         >
             <div className="flex flex-col-reverse lg:flex-row gap-10">
-                <div className="basis-1/2 px-[20px] lg:px-[0px] lg:pr-[200px] flex items-start">
+                <div className="hidden basis-1/2 px-[20px] lg:px-[0px] lg:pr-[200px] lg:flex items-start">
                     <div className="bg-[#1A3360] flex flex-col justify-center items-center rounded-xl bg-opacity-75 w-full">
                         <img className="py-[20px]" src="./images/GYGY-Logo-white.png" alt="Logo" />
 
@@ -76,6 +76,7 @@ export default function Hero() {
 
                 </div>
             </div>
+            
 
         </div>
     )
