@@ -1,4 +1,35 @@
+import { useState } from "react"
 export default function Hero() {
+    const [name, setName] = useState("")
+    const [number, setNumber] = useState("")
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        fetch("https://sheetdb.io/api/v1/h7apykwyjdlu4", {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                data: [
+                    {
+                        Name: name,
+                        Phone: number,
+                    },
+                ],
+            }),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data);
+                alert("Form submitted successfully!");
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+                alert("Error submitting form. Please try again later.");
+
+            });
+    }
     return (
         <div id='1'
             className="py-[90px] px-[5%] bg-[#1A3360] bg-auto lg:bg-cover bg-center bg-no-repeat h-lvh w-full lg:w-auto"
@@ -12,6 +43,7 @@ export default function Hero() {
                         <img className="py-[20px]" src="./images/GYGY-Logo-white.png" alt="Logo" />
 
                         <form
+                            onSubmit={handleSubmit}
                             className=" flex flex-col   items-center justify-center gap-8 mx-[5px] "
                         >
                             <input
@@ -20,7 +52,8 @@ export default function Hero() {
                                 id="name"
                                 placeholder="Name"
                                 className="outline-none h-14 bg-white w-auto md:w-2/3 rounded-3xl px-4 border border-black text-black"
-
+                                onChange={(e) => setName(e.target.value)}
+                                value={name}
                             />
                             <input
                                 type="text"
@@ -29,6 +62,8 @@ export default function Hero() {
                                 placeholder="Phone Number"
                                 className="outline-none h-14 bg-white md:w-2/3 rounded-3xl px-4 border border-black text-black"
                                 pattern="[0-9]{10}"
+                                onChange={(e) => setNumber(e.target.value)}
+                                value={number}
                             />
                             <div className="my-7 px-7">
                                 <p className="text-sm text-white text-center font-Helvet">Please fill in the following details. We will get back to you shortly.</p>
@@ -76,7 +111,7 @@ export default function Hero() {
 
                 </div>
             </div>
-            
+
 
         </div>
     )

@@ -1,16 +1,17 @@
+import { useState } from "react"
 export default function Footer() {
     const containerStyle = {
-        background: 'url("./images/Group36.png")', // Replace with your background image path
+        background: 'url("./images/Group36.png")', 
         backgroundSize: "contain",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
         position: "relative",
         width: "100%",
-        height: "100vh", // Set a specific height for your container
+        height: "100vh", 
     }
 
     const overlayStyle = {
-        // backgroundColor: "rgba(8, 60, 46, 0.5)", // Replace with your desired background color
+       
         position: "absolute",
         top: 0,
         left: 0,
@@ -20,7 +21,37 @@ export default function Footer() {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        color: "white", // Text color on top of the overlay
+        color: "white", 
+    }
+    const [name, setName] = useState("")
+    const [number, setNumber] = useState("")
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        fetch("https://sheetdb.io/api/v1/h7apykwyjdlu4", {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                data: [
+                    {
+                        Name: name,
+                        Phone: number,
+                    },
+                ],
+            }),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data);
+                alert("Form submitted successfully!");
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+                alert("Error submitting form. Please try again later.");
+
+            });
     }
     return (
         <div style={containerStyle}>
@@ -35,6 +66,7 @@ export default function Footer() {
             >
                 <h1 className="text-4xl font-Helvet pb-8">Get In Touch</h1>
                 <form
+                    onSubmit={handleSubmit}
                     className=" flex flex-col lg:flex-row items-center justify-center gap-4 mx-[5px]"
                 >
                     <input
@@ -43,6 +75,8 @@ export default function Footer() {
                         id="name"
                         placeholder="Name"
                         className="outline-none h-10 bg-white w-auto rounded-3xl px-4 border border-black text-black"
+                        onChange={(e) => setName(e.target.value)}
+                        value={name}
                     />
                     <input
                         type="text"
@@ -51,6 +85,8 @@ export default function Footer() {
                         placeholder="Phone Number"
                         className="outline-none h-10 bg-white w-auto rounded-3xl px-4 border border-black text-black"
                         pattern="[0-9]{10}"
+                        onChange={(e) => setNumber(e.target.value)}
+                        value={number}
                     />
                     <button className="rounded-3xl mt-0 font-semibold text-[16px] font-serif lg:text-[18px]   bg-white text-[#1A3360] hover:text-white hover:bg-[#1A3360] px-[22px] py-[8px] lg:px-[35px]">
                         Submit
