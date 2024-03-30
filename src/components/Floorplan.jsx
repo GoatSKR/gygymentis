@@ -1,6 +1,6 @@
 export default function Floorplan() {
     return (
-        <div className="bg-[#1A3360] p-[50px]">
+        <div id='4' className="bg-[#1A3360] p-[50px]">
             <div className="">
                 <h1 className="text-center text-white font-SOFIA font-semibold text-5xl">GYGY Mentis Floor Plan </h1>
             </div>

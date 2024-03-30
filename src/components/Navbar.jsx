@@ -1,25 +1,25 @@
 import { navLinks } from "../store/constants";
 import React, { useState, useEffect } from 'react';
-
-
+import PopUp from './Popup';
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [openPopup, setOpenPopup] = useState(false);
     const HandleRemovePopUp = () => setOpenPopup(false);
     useEffect(() => {
-        
+
         window.scrollTo(0, 0);
     }, []);
     return (
         <>
             <div className="text-center bg-[#1A3360] cursor-pointer text-white hover:underline py-1 text-lg w-auto font-Helvet">
-                GY GY Mentis  
+                GY GY Mentis
             </div>
             <nav className="w-full bg-[#FFFFFF]">
                 <div className="flex items-center justify-around px-4">
-                    <div className="h-4/5 w-36 my-2 rounded-xl bg-[#1A3360]">
+                    <div onClick={() => setOpenPopup(true)} className="h-4/5 w-36 my-2 rounded-xl bg-[#1A3360]">
                         <img className="pl-2 pt-2" src="./images/GYGY-Logo-white.png" alt="Logo" />
                     </div>
+                    <PopUp openPopUp={openPopup} closePopUp={HandleRemovePopUp} />
 
                     <div className="md:hidden">
                         <button
@@ -84,6 +84,8 @@ const Navbar = () => {
                             </React.Fragment>
 
                         ))}
+                        <PopUp openPopUp={openPopup} closePopUp={HandleRemovePopUp} />
+
                     </div>
                 </div>
 
@@ -115,6 +117,8 @@ const Navbar = () => {
 
 
                     ))}
+                    <PopUp openPopUp={openPopup} closePopUp={HandleRemovePopUp} />
+
                 </div>
             </nav >
         </>

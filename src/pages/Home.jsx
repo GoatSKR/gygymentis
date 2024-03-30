@@ -13,10 +13,14 @@ import Location from "../components/Location";
 import Navbar from "../components/Navbar";
 import Photos from "../components/Photos";
 import PriceList from "../components/PriceList";
+import ProjectDetails from "../components/ProjectDetails";
+import ProjectHighlights from "../components/ProjectHighlights";
+import Scroll from "../components/Scroll";
 
 export default function Home() {
     return (
         <>
+            <Scroll />
             <Navbar />
             <Hero />
             <HeroMobile />
@@ -31,6 +35,8 @@ export default function Home() {
             <PriceList />
             <Floorplan />
             <Location />
+            <ProjectDetails />
+            <ProjectHighlights />
             <Footer />
 
         </>

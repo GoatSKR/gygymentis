@@ -1,4 +1,8 @@
+import React, { useState } from 'react';
+import PopUp from './Popup';
 export default function About() {
+    const [openPopup, setOpenPopup] = useState(false);
+    const HandleRemovePopUp = () => setOpenPopup(false);
     return (
         <div id='2' className="bg-[#1A3360] h-auto grid place-items-center py-10 md:py-20">
             <div className="flex flex-col md:flex-row items-center justify-between text-white">
@@ -22,12 +26,13 @@ export default function About() {
                         establishing strong connections, delivering value, and making a
                         positive impact on the people they interact with.
                     </p>
-                    
+
                     <div>
 
-                        <button className="rounded-3xl mt-10 font-semibold font-Helvet text-[16px] font-serif lg:text-[18px]   bg-white text-[#1A3360] hover:text-white hover:bg-[#2a4f94] px-[22px] py-[8px] lg:px-[35px]">
+                        <button onClick={() => setOpenPopup(true)} className="rounded-3xl mt-10 font-semibold font-Helvet text-[16px] font-serif lg:text-[18px]   bg-white text-[#1A3360] hover:text-white hover:bg-[#2a4f94] px-[22px] py-[8px] lg:px-[35px]">
                             Read More
                         </button>
+                        <PopUp openPopUp={openPopup} closePopUp={HandleRemovePopUp} />
                     </div>
                 </div>
             </div>

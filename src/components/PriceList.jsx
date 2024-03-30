@@ -1,6 +1,10 @@
+import React, { useState } from 'react';
+import PopUp from './Popup';
 export default function PriceList() {
+    const [openPopup, setOpenPopup] = useState(false);
+    const HandleRemovePopUp = () => setOpenPopup(false);
     return (
-        <div className="bg-white py-[4%] px-[8%]">
+        <div id='5' className="bg-white py-[4%] px-[8%]">
             <div className="">
                 <h1 className="text-center text-black font-SOFIA font-semibold text-5xl">GYGY Mentis Price List </h1>
             </div>
@@ -16,9 +20,11 @@ export default function PriceList() {
                         PRICE : ON REQUEST
                     </p>
                     <div className="mt-2 flex border-1 border-[#1A3360] bg-[#1A3360] h-auto w-auto py-2  px-10  cursor-pointer justify-center font-Helvet">
-                        <p  className="text-white  text-center font-bold">
+                        <p onClick={() => setOpenPopup(true)} className="text-white  text-center font-bold">
                             Request Price List
                         </p>
+                        <PopUp openPopUp={openPopup} closePopUp={HandleRemovePopUp} />
+
                     </div>
                 </div>
 
@@ -33,9 +39,11 @@ export default function PriceList() {
                         PRICE : ON REQUEST
                     </p>
                     <div className="mt-2 flex border-1 border-[#1A3360] bg-[#1A3360] h-auto w-auto py-2  px-10  cursor-pointer justify-center font-Helvet">
-                        <p  className="text-white  text-center font-bold">
+                        <p onClick={() => setOpenPopup(true)} className="text-white  text-center font-bold">
                             Request Price List
                         </p>
+                        <PopUp openPopUp={openPopup} closePopUp={HandleRemovePopUp} />
+
                     </div>
                 </div>
 
@@ -50,9 +58,11 @@ export default function PriceList() {
                         PRICE : ON REQUEST
                     </p>
                     <div className="mt-2 flex border-1 border-[#1A3360] bg-[#1A3360] h-auto w-auto py-2  px-10  cursor-pointer justify-center font-Helvet">
-                        <p  className="text-white  text-center font-bold">
+                        <p onClick={() => setOpenPopup(true)} className="text-white  text-center font-bold">
                             Request Price List
                         </p>
+                        <PopUp openPopUp={openPopup} closePopUp={HandleRemovePopUp} />
+
                     </div>
                 </div>
             </div>
