@@ -112,7 +112,7 @@ export default function Hero() {
                         <h2>New Launch and Possession : 3 years</h2>
                     </div>
                     <div className="text-4xl lg:text-5xl pt-6 text-white font-SOFIA font-extrabold">
-                        <h1>Starting Price ₹ 23 Lakhs*</h1>
+                        <h1>Starting Price ₹ 14.50 Lakhs*</h1>
                     </div>
                     <div className="text-white text-md md:text-2xl font-SOFIA pt-6">
                         <h2>Office Space / Retail Shop</h2>
