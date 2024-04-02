@@ -47,20 +47,16 @@ export default function Benefits() {
                             </thead>
                             <tbody className="bg-white p-[5px]">
                                 <tr>
-                                    <td className="border border-slate-600 p-[5px]">The Sliding Mr. Bones (Next Stop, Pottersville)</td>
-                                    <td className="border border-slate-600 p-[5px]">Malcolm Lockyer</td>
-                                    <td className="border border-slate-600 p-[5px]">1961</td>
+                                    <td className="border border-slate-600 p-[5px]">GYGY Mentis Bare shell  Office Space</td>
+                                    <td className="border border-slate-600 p-[5px]">300 sq.ft.</td>
+                                    <td className="border border-slate-600 p-[5px]">Price on Request</td>
                                 </tr>
                                 <tr>
-                                    <td className="border border-slate-600 p-[5px]">Witchy Woman</td>
-                                    <td className="border border-slate-600 p-[5px]">The Eagles</td>
-                                    <td className="border border-slate-600 p-[5px]">1972</td>
+                                    <td className="border border-slate-600 p-[5px]">GYGY Mentis Shop</td>
+                                    <td className="border border-slate-600 p-[5px]">400 sq.ft.</td>
+                                    <td className="border border-slate-600 p-[5px]">Price on Request</td>
                                 </tr>
-                                <tr>
-                                    <td className="border border-slate-600 p-[5px]">Shining Star</td>
-                                    <td className="border border-slate-600 p-[5px]">Earth, Wind, and Fire</td>
-                                    <td className="border border-slate-600 p-[5px]">1975</td>
-                                </tr>
+                                
                             </tbody>
                         </table>
                     </div>

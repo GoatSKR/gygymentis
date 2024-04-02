@@ -1,7 +1,9 @@
 import { useState } from "react"
+import GoogleAnalytics from "../features/GoogleAnalytics";
 export default function ProjectDetails() {
     const [name, setName] = useState("")
     const [number, setNumber] = useState("")
+    const [email, setEmail] = useState("");
     const handleSubmit = (e) => {
         e.preventDefault()
         fetch("https://sheetdb.io/api/v1/h7apykwyjdlu4", {
@@ -15,6 +17,7 @@ export default function ProjectDetails() {
                     {
                         Name: name,
                         Phone: number,
+                        Email: email,
                     },
                 ],
             }),
@@ -95,16 +98,29 @@ export default function ProjectDetails() {
                                 placeholder="Phone Number"
                                 className="outline-none h-14 bg-white md:w-2/3  px-4 border-b-2 border-black text-black"
                                 pattern="[0-9]{10}"
+                                title="Please enter a valid Phone Number"
                                 onChange={(e) => setNumber(e.target.value)}
                                 value={number}
+                            />
+                            <input
+                                type="text"
+                                required
+                                id="email"
+                                placeholder="Email"
+                                className="outline-none h-14 bg-white md:w-2/3  px-4 border-b-2 border-black text-black"
+                                pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
+                                title="Please enter a valid email address"
+                                onChange={(e) => setEmail(e.target.value)}
+                                value={email}
                             />
                             <div className="my-7 px-7">
                                 <p className="text-sm text-black text-center font-Helvet">Please fill in the following details. We will get back to you shortly.</p>
                             </div>
-                            <button className=" mb-[20px] font-thin text-[16px] font-serif font-Helvet lg:text-[18px]  md:w-2/6 bg-[#1A3360] text-white hover:text-[#1A3360] hover:bg-white px-[22px] py-[8px] lg:px-[35px]">
+                            <button className=" mb-[20px] font-thin text-[16px] font-Helvet lg:text-[18px]  md:w-2/6 bg-[#1A3360] text-white hover:text-[#1A3360] hover:bg-white px-[22px] py-[8px] lg:px-[35px]">
                                 Submit
                             </button>
                         </form>
+                        <GoogleAnalytics />
                     </div>
 
                 </div>

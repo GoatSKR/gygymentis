@@ -11,9 +11,27 @@ const Navbar = () => {
     }, []);
     return (
         <>
-            <div className="text-center bg-[#1A3360] cursor-pointer text-white hover:underline py-1 text-lg w-auto font-Helvet">
-                GY GY Mentis
+            <div className="flex flex-col md:flex-row justify-around bg-[#1A3360] text-white py-1 ">
+                <div className="basis-1/3">
+
+
+                </div>
+                <div className="basis-1/3 text-center">
+                    <span className="text-lg">GYGY Mentis</span>
+                </div>
+
+                <div className="basis-1/3 text-center">
+                    <span className="text-lg ">+91-940-3891-409</span>
+                </div>
+                {/* <div class="absolute marquee2 whitespace-nowrap">
+                    <span class="text-lg mx-4">GYGY</span>
+                    <span class="text-lg mx-4">MENTIS</span>
+                    <span class="text-lg mx-4">CALL</span>
+                    <span class="text-lg mx-4">NOW:</span>
+                    <span class="text-lg mx-4 ">+91-940-3891-409</span>
+                </div> */}
             </div>
+
             <nav className="w-full bg-[#FFFFFF]">
                 <div className="flex items-center justify-around px-4">
                     <div onClick={() => setOpenPopup(true)} className="h-4/5 w-36 my-2 rounded-xl bg-[#1A3360]">

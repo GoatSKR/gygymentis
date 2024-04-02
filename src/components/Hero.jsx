@@ -1,10 +1,12 @@
 import { useState } from "react"
+import GoogleAnalytics from "../features/GoogleAnalytics";
 import PopUp from './Popup';
 export default function Hero() {
     const [openPopup, setOpenPopup] = useState(false);
     const HandleRemovePopUp = () => setOpenPopup(false);
     const [name, setName] = useState("")
     const [number, setNumber] = useState("")
+    const [email, setEmail] = useState("");
     const handleSubmit = (e) => {
         e.preventDefault()
         fetch("https://sheetdb.io/api/v1/h7apykwyjdlu4", {
@@ -18,6 +20,7 @@ export default function Hero() {
                     {
                         Name: name,
                         Phone: number,
+                        Email: email,
                     },
                 ],
             }),
@@ -65,8 +68,20 @@ export default function Hero() {
                                 placeholder="Phone Number"
                                 className="outline-none h-14 bg-white md:w-2/3 rounded-3xl px-4 border border-black text-black"
                                 pattern="[0-9]{10}"
+                                title="Please enter a valid Phone Number"
                                 onChange={(e) => setNumber(e.target.value)}
                                 value={number}
+                            />
+                            <input
+                                type="text"
+                                required
+                                id="email"
+                                placeholder="Email"
+                                className="outline-none h-14 bg-white md:w-2/3 rounded-3xl px-4 border border-black text-black"
+                                pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
+                                title="Please enter a valid email address"
+                                onChange={(e) => setEmail(e.target.value)}
+                                value={email}
                             />
                             <div className="my-7 px-7">
                                 <p className="text-sm text-white text-center font-Helvet">Please fill in the following details. We will get back to you shortly.</p>
@@ -75,6 +90,7 @@ export default function Hero() {
                                 Submit
                             </button>
                         </form>
+                        <GoogleAnalytics />
                     </div>
 
 

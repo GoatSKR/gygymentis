@@ -1,17 +1,18 @@
-import { useState } from "react"
+import React, { useState, useEffect } from "react";
+import GoogleAnalytics from "../features/GoogleAnalytics";
 export default function Footer() {
     const containerStyle = {
-        background: 'url("./images/Group36.png")', 
+        background: 'url("./images/Group36.png")',
         backgroundSize: "contain",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
         position: "relative",
         width: "100%",
-        height: "100vh", 
+        height: "100vh",
     }
 
     const overlayStyle = {
-       
+
         position: "absolute",
         top: 0,
         left: 0,
@@ -21,10 +22,11 @@ export default function Footer() {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        color: "white", 
+        color: "white",
     }
     const [name, setName] = useState("")
     const [number, setNumber] = useState("")
+    const [email, setEmail] = useState("");
     const handleSubmit = (e) => {
         e.preventDefault()
         fetch("https://sheetdb.io/api/v1/h7apykwyjdlu4", {
@@ -38,6 +40,7 @@ export default function Footer() {
                     {
                         Name: name,
                         Phone: number,
+                        Email: email,
                     },
                 ],
             }),
@@ -88,13 +91,24 @@ export default function Footer() {
                         onChange={(e) => setNumber(e.target.value)}
                         value={number}
                     />
+                    <input
+                        type="text"
+                        required
+                        id="email"
+                        placeholder="Email"
+                        className="outline-none h-10 bg-white w-auto rounded-3xl px-4 border border-black text-black"
+                        pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
+                        onChange={(e) => setEmail(e.target.value)}
+                        value={email}
+                    />
                     <button className="rounded-3xl mt-0 font-semibold text-[16px] font-serif lg:text-[18px]   bg-white text-[#1A3360] hover:text-white hover:bg-[#1A3360] px-[22px] py-[8px] lg:px-[35px]">
                         Submit
                     </button>
                 </form>
+                <GoogleAnalytics />
                 <h1 className="text-center text-3xl md:text-6xl font-SOFIA">GYGY MENTIS</h1>
                 <h2 className="text-center text-md md:text-4xl font-Helvet">
-                    +91-8826-870-417 | info@gygymentis.site
+                    +91-940-3891-409 | info@gygymentis.online
                 </h2>
                 <div className="h-28 w-48 rounded-xl bg-[#1A3360]">
                     <img className="pl-2 pt-2 w-full h-full" src="./images/GYGY-Logo-white.png" />

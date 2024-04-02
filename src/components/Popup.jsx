@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { FaTimes } from 'react-icons/fa';
+import GoogleAnalytics from "../features/GoogleAnalytics";
 
 const PopUp = ({ openPopUp, closePopUp }) => {
     const [name, setName] = useState("");
     const [number, setNumber] = useState("");
+    const [email, setEmail] = useState("");
     const [submissionStatus, setSubmissionStatus] = useState(null);
     useEffect(() => {
         if (openPopUp) {
@@ -42,6 +44,7 @@ const PopUp = ({ openPopUp, closePopUp }) => {
                     {
                         Name: name,
                         Phone: number,
+                        Email: email,
                     },
                 ],
             }),
@@ -52,6 +55,7 @@ const PopUp = ({ openPopUp, closePopUp }) => {
                 setSubmissionStatus("success");
                 setName("");
                 setNumber("");
+                setEmail("");
             })
             .catch((error) => {
                 console.error("Error Submitting Form!");
@@ -105,9 +109,20 @@ const PopUp = ({ openPopUp, closePopUp }) => {
                             placeholder="Phone Number"
                             className="outline-none h-10 lg:h-14 text-[13px] md:text-[18px] bg-white w-4/5 md:w-2/3 lg:w-2/4 rounded-3xl px-4 border border-black text-black"
                             pattern="[0-9]{10}"
-
+                            title="Please enter a valid Phone Number"
                             onChange={(e) => setNumber(e.target.value)}
                             value={number}
+                        />
+                        <input
+                            type="text"
+                            required
+                            id="email"
+                            placeholder="Email"
+                            className="outline-none h-10 lg:h-14 text-[13px] md:text-[18px] bg-white w-4/5 md:w-2/3 lg:w-2/4 rounded-3xl px-4 border border-black text-black"
+                            pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
+                            title="Please enter a valid email address"
+                            onChange={(e) => setEmail(e.target.value)}
+                            value={email}
                         />
                         <div className="my-4 px-7">
                             <p className="text-[13px] text-white text-center font-Helvet">Please fill in the following details. We will get back to you shortly.</p>
@@ -122,6 +137,7 @@ const PopUp = ({ openPopUp, closePopUp }) => {
                             Submit
                         </button>
                     </form>
+                    <GoogleAnalytics />
                     <div className="flex flex-col justify-center items-center h-auto pt-[20px]">
                         <div className="flex-1 w-36 my-2 border-2 shadow-black shadow-lg border-gray-400 rounded-xl bg-[#1A3360]">
                             <img className="pl-2 pt-2" src="./images/GYGY-Logo-white.png" alt="Logo" />
