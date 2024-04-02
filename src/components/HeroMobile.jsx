@@ -1,7 +1,9 @@
 import { useState } from "react"
+import GoogleAnalytics from "../features/GoogleAnalytics";
 export default function HeroMobile() {
     const [name, setName] = useState("")
     const [number, setNumber] = useState("")
+    const [email, setEmail] = useState("");
     const handleSubmit = (e) => {
         e.preventDefault()
         fetch("https://sheetdb.io/api/v1/h7apykwyjdlu4", {
@@ -15,6 +17,7 @@ export default function HeroMobile() {
                     {
                         Name: name,
                         Phone: number,
+                        Email: email,
                     },
                 ],
             }),
@@ -38,14 +41,14 @@ export default function HeroMobile() {
 
                     <form
                         onSubmit={handleSubmit}
-                        className=" flex flex-col   items-center justify-center gap-8 mx-[5px] "
+                        className=" flex flex-col   items-center justify-center gap-6 mx-[5px] "
                     >
                         <input
                             type="text"
                             required
                             id="name"
                             placeholder="Name"
-                            className="outline-none h-14 bg-white w-auto md:w-2/3 rounded-3xl px-4 border border-black text-black"
+                            className="outline-none h-10 bg-white w-auto md:w-2/3 rounded-3xl px-4 border border-black text-black"
                             onChange={(e) => setName(e.target.value)}
                             value={name}
                         />
@@ -54,10 +57,21 @@ export default function HeroMobile() {
                             required
                             id="number"
                             placeholder="Phone Number"
-                            className="outline-none h-14 bg-white md:w-2/3 rounded-3xl px-4 border border-black text-black"
+                            className="outline-none h-10 bg-white md:w-2/3 rounded-3xl px-4 border border-black text-black"
                             pattern="[0-9]{10}"
                             onChange={(e) => setNumber(e.target.value)}
                             value={number}
+                        />
+                        <input
+                            type="text"
+                            required
+                            id="email"
+                            placeholder="Email"
+                            className="outline-none h-10 bg-white md:w-2/3 rounded-3xl px-4 border border-black text-black"
+                            pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
+                            title="Please enter a valid email address"
+                            onChange={(e) => setEmail(e.target.value)}
+                            value={email}
                         />
                         <div className="my-7 px-7">
                             <p className="text-sm text-white text-center font-Helvet">Please fill in the following details. We will get back to you shortly.</p>
@@ -66,6 +80,7 @@ export default function HeroMobile() {
                             Submit
                         </button>
                     </form>
+                    <GoogleAnalytics />
                 </div>
 
 
